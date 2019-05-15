@@ -1,37 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
-import Todo from './components/TodoComponents/Todo';
+import TodoList from './components/TodoComponents/TodoList';
 
-
-const todoTasks = [
-  {
-    task: "Learn Webpack",
-    id: Date.now(),
-    completed: false
-  },
-  {
-    task: "Work on TypeScript",
-    id: Date.now(),
-    completed: false
-  },
-  {
-  task: "Complete graph with D3",
-  id: Date.now(),
-  completed: false
-  },
-  {
-    task: "Deploy using Next",
-    id: Date.now(),
-    completed: false
-  }
-];
-
-const defaultTask = {
-  tasks: todoTasks,
-  task: "",
-  id: Date.now(),
-  completed: false
-};
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -39,40 +9,60 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
-    this.state = defaultTask;
+    this.state = {
+      
+      todos: [
+        {
+          task: "Learn Webpack",
+          id: Date.now(),
+          completed: false
+        },
+        {
+          task: "Work on TypeScript",
+          id: Date.now(),
+          completed: false
+        },
+        {
+        task: "Complete graph with D3",
+        id: Date.now(),
+        completed: false
+        },
+        {
+          task: "Deploy using Next",
+          id: Date.now(),
+          completed: false
+        }
+      ],
+      todo: ""
+    };
   }
  
   changeHandler = event => {
-    console.log(event.target.value);
-    this.setState({[event.target.task]: event.target.value});
+    this.setState({[event.target.name]: event.target.value});
   }
 
   addTodoHandler = event => {
     event.preventDefault();
-    let newTask = {
-      task: this.state.task,
-      id: this.state.id,
-      completed: this.state.completed
+    const newTask = {
+      task: this.state.todo,
+      id: Date.now(),
+      completed: false
     };
     this.setState({
-      tasks: [...this.state.tasks, newTask]
+      todos: [...this.state.todos, newTask],
+      todo: ""
     });
-    this.setState({});
   };
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        {this.state.tasks.map(task => (
-            <Todo task={task}/>
-          ))}
+          <TodoList todos={this.state.todos} />
             <TodoForm 
             addTodoHandler={this.addTodoHandler}
             changeHandler={this.changeHandler}
-            task ={this.state.task}
-            id={this.state.id}
-            completed={this.state.completed}
+            value ={this.state.todo}
             />
       </div>
     );
