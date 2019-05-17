@@ -3,13 +3,19 @@
 import React from 'react';
 import Todo from './Todo';
 
-function TodoList(props) {
+const TodoList = props => {
     return (
-        <div>
+        <div className="todo-list">
+            <form className="clear">
+                <button className="btn-clear button" onClick={e => {props.clearCompleted(e);}}>
+                        Clear Completed
+                </button>
+            </form>
             {props.todos.map(todo => (
                 <Todo 
                 key={todo.id}
                 todo={todo}
+                toggleTodo={props.toggleTodo}
                 />
             ))}
         </div>

@@ -1,0 +1,110 @@
+@import url('https://rsms.me/inter/inter.css');
+
+html { 
+    font-family: 'Inter', sans-serif; 
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+       font-family: 'Inter var', sans-serif; 
+    }
+}
+
+.App {
+    text-align: center;
+    margin: 0 auto;
+}
+
+body {
+    background-color: #2d2d37;
+    color: #2d2d37;
+    font-weight: bold;
+}
+
+h2 {
+    color: #6B6B7D;
+}
+
+
+form > input {
+    background-color: #2d2d37;
+    border: 0;
+    padding: 6px 0;
+    font-size: 1rem;
+    width: 240px;
+    outline: 0;
+    color: white;
+    border-bottom: 1px solid #00997B;
+    margin-right: 8px;
+    margin-bottom: 20px;
+  }
+
+input {
+    margin-top: 20px;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 287px;
+    margin: 0 auto;
+}
+
+.item {
+    background-color: #00997B;
+    text-align: center;
+    margin: 6px 0;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+.item.completed {
+    background-color: #2D2D37;
+    color: #42B59F;
+    border: 1px solid #42B59F;
+    text-decoration: line-through;
+}
+
+.button {
+    border-radius: 5px;
+    background-color: #00997B;
+    color: #2d2d37;
+    border: 0;
+    font-size: 16px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 2.5px 5px;
+    margin: 2.5px;
+    width: 140px;
+    height: 35px;
+}
+
+button:hover {
+    border-radius: 5px;
+    background-color: #2d2d37;
+    color: #00997B;
+    border: 1px solid #00997B;
+    font-size: 16px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 2.5px 5px;
+    margin: 2.5px;
+    width: 140px;
+    height: 35px;
+}
+
+.btn-clear {
+    text-align: center;
+    
+}
+
+.clear {
+    margin-bottom: 50px;
+}
