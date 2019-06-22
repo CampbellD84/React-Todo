@@ -12,7 +12,7 @@ const TodoList = props => {
                 </button>
             </form>
             {props.todos.map(todo => (
-                <Todo 
+                <Todo
                 key={todo.id}
                 todo={todo}
                 toggleTodo={props.toggleTodo}
